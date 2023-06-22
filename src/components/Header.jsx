@@ -2,7 +2,7 @@ import { Box, Button, HStack, Image, Stack, Text, useColorMode } from "@chakra-u
 import { useEffect, useState } from "react";
 import { BsSunsetFill } from "react-icons/bs"
 import {FaMoon } from "react-icons/fa"
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export default function Header(){
     const  [ scroll, setScroll ] = useState(true)
@@ -24,6 +24,10 @@ export default function Header(){
         {title: "comics", href: "/comics"},
         {title: "events", href: "/events"}
     ]
+    const location = useLocation()
+        console.log(location.pathname);
+
+
     const { colorMode, toggleColorMode } = useColorMode();
     return <Stack 
     transform={scroll ? "translateY(0px)" : "translateY(-60px)"}
@@ -51,7 +55,7 @@ export default function Header(){
                         {
                             GNB.map((item)=>(
                                 <Link to={item.href} key={item.title} aria-label={item.title}>
-                                    <Text>{item.title}</Text>
+                                    <Text color={item.href === location.pathname ? "red.500" : ""}>{item.title}</Text>
                                 </Link>
                             ))
                         }
