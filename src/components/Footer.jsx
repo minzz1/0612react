@@ -23,7 +23,7 @@ export default function Footer ( ) {
             <GridItem >
                 <Box >
                     <Image 
-                    src="https://data.onnada.com/character/202212/3718766049_2da1e8b6_281931.jpg"
+                    src="https://phinf.wevpstatic.net/MjAyMzA2MThfMTA5/MDAxNjg3MDU1OTQ2Mjc2.XfqEwalVbbxX3bvefndeHhou6Wvyfe1NfaFs1vpiHlwg.Lrazv0eHJAJ4HrObAIJZ91WNgPL-8vtZQGMdJ8MHvuwg.JPEG/image.jpg?type=e1920"
                     alt="Main logo" />
                 </Box>
             </GridItem>
