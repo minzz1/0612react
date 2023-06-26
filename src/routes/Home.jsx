@@ -1,13 +1,16 @@
 import { Box, Grid, HStack, Image, Text, VStack} from "@chakra-ui/react";
 import CarouselSlick from "../components/CarouselSlick";
 import CardItems from "../components/CardItems";
-
 import TitleImageSkew from "../components/TitleImageSkew";
 import { useQuery } from "react-query";
 import Slider from "react-slick";
 import { Link } from "react-router-dom";
 import { comicList, eventsList } from "../api";
 import SkeletonList from "../components/SkeletonList";
+import { Helmet } from "react-helmet";
+import AOS from "aos";
+import { useEffect } from "react";
+
 
 const settings = {
     dots: true,
@@ -38,19 +41,26 @@ const featuresLists = [
 ]
 
 export default function Home( ) {
+        useEffect(()=>{
+            AOS.init();
+        }, [])
     const {data, isLoading } = useQuery('repoData', comicList );
 
     const { data: eventsData, isLoading: eventsIsLoading } = useQuery('eventsData', eventsList );
-
+  
     
     return <>
+    <HelmetProvider>
+        <Helmet>
+            <title>마블 홈페이지 입니다</title>
+        </Helmet>
     {/* 캐러셀 */}
         <Box >
             <CarouselSlick/>
         </Box>
 
     {/* 특장점 */}
-    <HStack w="full" justifyContent="center" py="16" bg="gray.200">
+    <HStack w="full" justifyContent="center" py="16" bg="gray.200" >
         <Grid gap={"4"} w="7xl" templateColumns={"repeat(3, 1fr)"}>
             {
                 featuresLists.map((item, i) => (
@@ -60,7 +70,7 @@ export default function Home( ) {
         </Grid>
     </HStack>
 
-    {/* 기울어진 이미지 타이틀 */}
+{/* 기울어진 이미지 타이틀 */}
     <TitleImageSkew 
         title="bts"
         description="10주년 축하해 ! "
@@ -164,5 +174,6 @@ export default function Home( ) {
             </Slider>
         </Box>
     </VStack> */}
+    </HelmetProvider>
     </>
 }
