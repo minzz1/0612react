@@ -13,6 +13,22 @@ npm install@noonnu/pretendard-regular@0.1.0
 ## react-icons설치
 npm install react-icons
 
+## react-slick
+* https://react-slick.neostack.com/
+* npm install react-slick
+* npm install slick-carousel
+* import "slick-carousel/slick/slick.css";
+* import "slick-carousel/slick/slick-theme.css";
+## react-helmet
+* https://www.npmjs.com/package/react-helmet
+* npm i react-helmet
+## react-query
+* https://tanstack.com/query/v3/docs/react/overview
+* npm i react-query
+## react-native snippet
+* https://always-develop.tistory.com/78 { "reactfunctionalComponent": { "prefix": "rfc", "body": [ "", "export default function ${TM_FILENAME_BASE}() {", " return (", "
+
+", " )", "}" ], "description": "reactfunctionalComponent" } }
 
 # Getting Started with Create React App
 
