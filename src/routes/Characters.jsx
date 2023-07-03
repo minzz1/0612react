@@ -1,11 +1,12 @@
-import { Box, Grid, GridItem, HStack, Image, Select, Text, VStack } from "@chakra-ui/react";
+import { Box, Grid, GridItem, HStack, Image, Select, Skeleton, Text, VStack } from "@chakra-ui/react";
 import { useQuery } from "react-query";
 import { charactersList } from "../api";
 import { useState } from "react";
 import SkeletonList from "../components/SkeletonList";
 import Pagination from "react-js-pagination";
 import "./Paging.css";
-import { Helmet } from "react-helmet";
+import { Helmet, HelmetProvider } from "react-helmet-async";
+import SkeletonPage from "../components/SkeletonPage";
 
 export default function Characters(){
     const [numLimit, setNumLimit ] = useState(6);
@@ -56,7 +57,7 @@ export default function Characters(){
 
                     {/* 게시판 */}
                     <Grid templateColumns={"repeat(6, 1fr)"} w="full" gap="4">
-                        {isLoading ? ( <SkeletonList />) : " "}
+                        {isLoading &&<SkeletonPage num={numLimit} column="6"  />}
                         {data?.data?.results.map((item, i) => (
                             <GridItem w="220px" bg="red.300" role="group" >
                                 <VStack w="full">
@@ -106,8 +107,7 @@ export default function Characters(){
                         />
                     </Box>
                 </VStack>
-
             </VStack>
         </HelmetProvider>
-    )
+    );
 }

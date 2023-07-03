@@ -7,8 +7,9 @@ import Slider from "react-slick";
 import { Link } from "react-router-dom";
 import { comicList, eventsList } from "../api";
 import SkeletonList from "../components/SkeletonList";
-import { Helmet } from "react-helmet";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 import AOS from "aos";
+import "aos/dist/aos.css";
 import { useEffect } from "react";
 
 
